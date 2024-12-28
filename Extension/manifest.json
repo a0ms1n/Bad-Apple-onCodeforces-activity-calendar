@@ -1,0 +1,37 @@
+{
+    "name": "Bad Apple!! in Codeforces",
+    "version": "1.0.0",
+    "description": "For playing Bad Apple!! on Codeforces activity calendar.",
+    "manifest_version": 3,
+    "author": "a0ms1n",
+    "icons": {
+        "16": "assets/icon/icon.png",
+        "48": "assets/icon/icon.png",
+        "128": "assets/icon/icon.png"  
+    },
+    "permissions":["storage","activeTab","scripting","debugger","tabs"],
+    "background": {
+        "service_worker": "assets/background.js"
+    },
+    "content_scripts":[
+        {
+            "matches":[
+                "https://codeforces.com/profile/*"
+            ],
+            "js":[  
+                "assets/init_screen.js",
+                "assets/draw_pixels.js",
+                "assets/animation.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/animation/audio.mp3",
+        "assets/animation/frame.json"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
